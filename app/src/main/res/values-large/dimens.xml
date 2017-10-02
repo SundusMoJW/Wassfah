@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textSize">16dp</dimen>
+    <dimen name="titel">18dp</dimen>
+    <dimen name="nav_size">340dp</dimen>
+    <dimen name="hedar">300dp</dimen>
+    <dimen name="padding_icon">0dp</dimen>
+    <dimen name="hight_slider">300dp</dimen>
+    <dimen name="rest_icon">30dp</dimen>
+    <dimen name="rest_ic_padding">8dp</dimen>
+    <dimen name="res_ic_size">40dp</dimen>
+    <dimen name="pading_plus_cart">4dp</dimen>
+    <dimen name="map">200dp</dimen>
+    <dimen name="hight_signup">250dp</dimen>
+
+    <dimen name="tocentr">200dp</dimen>
+    <dimen name="ic_clock">20dp</dimen>
+    <dimen name="padding">10dp</dimen>
+    <dimen name="margin">10dp</dimen>
+    <dimen name="marginBottom">30dp</dimen>
+    <dimen name="appBarLayout">500dp</dimen>
+
+</resources>

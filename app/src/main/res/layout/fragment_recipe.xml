@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/shadow_end"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.twins.osama.wasfa.Fragments.RecipeFragment">
+    <ImageView
+        android:id="@+id/imgprogress"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="20dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/ic_spinner_of_dots" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvgrid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@color/shadow_end"
+        android:padding="10dp"
+        >
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

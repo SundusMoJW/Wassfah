@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drower_Item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:layoutDirection="rtl"
+    android:orientation="horizontal"
+    android:padding="15dp"
+    android:textDirection="rtl">
+
+    <ImageView
+        android:id="@+id/image_home"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:padding="@dimen/padding_icon"
+        android:src="@drawable/ic_action_home" />
+    <TextView
+        android:id="@+id/text_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="right"
+        android:paddingRight="10dp"
+        android:paddingTop="4dp"
+        android:text="Home"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/titel"
+        android:textStyle="bold" />
+
+</LinearLayout>
+

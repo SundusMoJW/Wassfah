@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView_home"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/hedar"
+    android:layout_marginBottom="@dimen/marginBottom"
+    android:clickable="true"
+    android:focusable="true"
+    android:layoutDirection="ltr"
+    android:textDirection="ltr"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="@dimen/padding"
+    app:cardElevation="@dimen/padding">
+    <ImageView
+        android:id="@+id/img_hom_recview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/header" />
+    <TextView
+        android:id="@+id/text_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/back_text_slider"
+        android:layout_gravity="center_vertical|center"
+        android:text="The Main"
+        android:gravity="center"
+        android:padding="@dimen/padding"
+        android:textColor="@color/backLogo"
+        android:textSize="@dimen/textSize"/>
+
+</android.support.v7.widget.CardView>

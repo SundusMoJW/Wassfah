@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/shadow_end"
+    android:orientation="vertical"
+    tools:context="com.twins.osama.wasfa.Fragments.FavaritFragment">
+
+    <ImageView
+        android:id="@+id/imgprogress_favarit"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        app:srcCompat="@drawable/ic_spinner_of_dots" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvgrid_favrit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@color/shadow_end"
+        android:padding="10dp">
+
+    </android.support.v7.widget.RecyclerView>
+    <TextView
+        android:id="@+id/noitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/titel"
+        android:background="@drawable/back_text_slider"
+        android:padding="@dimen/titel"
+        android:textColor="@color/white"
+        android:text="No Item In Favarit "
+        android:layout_gravity="center|top"
+        android:visibility="gone"/>
+
+</LinearLayout>

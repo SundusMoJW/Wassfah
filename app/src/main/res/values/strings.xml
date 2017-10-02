@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Wasfa</string>
+    <string name="saveItem">تمت الإضافة إلى المفضلة</string>
+    <string name="deleteItem">تم الحذف من المفضلة</string>
+    <string name="noItem">لا يوجد عناصر في المفضلة </string>
+    <string name="offNet">لا يوجد اتصال بالإنترنت </string>
+
+    <string name="color">اللون</string>
+    <string name="chColor">تغيير اللون</string>
+    <string name="about">عن وصفة</string>
+    <string name="info">تعليمات الاستخدام</string>
+    <string name="verion">الإصدار</string>
+    <string name="message"> **********</string>
+    <string name="verion1">Worcip App
+    Version 1.0
+    Copyright 2015 Gabriel</string>
+
+    <string-array name="drawerItems">
+        <item>الرئيسية</item>
+        <item>المفضلة</item>
+        <item>الاعدادات</item>
+    </string-array>
+
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_action_home</item>
+        <item>@drawable/ic_action_favorites</item>
+        <item>@drawable/ic_action_settings</item>
+    </array>
+
+    <string-array name="color_array">
+        <item>Blue</item>
+        <item>Red</item>
+        <item>Green</item>
+        <item>Brown</item>
+        <item>Default</item>
+    </string-array>
+    <string-array name="colors">
+        <item>@color/blue</item>
+        <item>@android:color/holo_red_dark</item>
+        <item>@android:color/holo_green_dark</item>
+        <item>@android:color/holo_orange_dark</item>
+        <item>@color/default1</item>
+    </string-array>
+</resources>

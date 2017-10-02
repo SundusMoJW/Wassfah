@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ef5438</color>
+    <color name="colorPrimaryDark">#ef5438</color>
+    <color name="colorAccent">#C0C0C0</color>
+    <color name="backLogo">#ef5438</color>
+    <color name="rect_rounded">#D35650</color>
+    <color name="shadow_end">#f6f5f4</color>
+    <color name="shadow_center">#efedec</color>
+    <color name="shadow_start">#c1bcb9</color>
+    <color name="white">#fff</color>
+    <color name="mineTransport">#33ef5438</color>
+    <color name="transparent">#99000000</color>
+    <color name="black">#000000</color>
+    <color name="blue">#3F51B5</color>
+    <color name="back_digg">#353535</color>
+    <color name="bordar_edit">#C6C6C6</color>
+    <color name="seekbar_progres">#4E54A4</color>
+    <color name="default1">#ef5438</color>
+
+</resources>

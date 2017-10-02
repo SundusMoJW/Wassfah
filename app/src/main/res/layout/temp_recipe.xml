@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView_recipe"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:layoutDirection="ltr"
+    android:textDirection="ltr"
+    app:cardCornerRadius="2dp"
+    app:cardElevation="2dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
+        android:orientation="vertical"
+        android:textDirection="rtl">
+
+        <TextView
+            android:id="@+id/title_recipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin"
+            android:padding="@dimen/padding"
+            android:text="العنوان"
+            android:textColor="@color/black"
+            android:textSize="@dimen/titel" />
+
+        <com.etsy.android.grid.util.DynamicHeightImageView
+            android:id="@+id/imgrecipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_recipe"
+            android:padding="@dimen/padding"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/tvtime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imgrecipe"
+            android:layout_margin="@dimen/margin"
+            android:padding="@dimen/padding"
+            android:text="30 دقيقة"
+            android:textSize="@dimen/textSize" />
+
+        <ImageView
+            android:layout_width="@dimen/ic_clock"
+            android:layout_height="@dimen/ic_clock"
+            android:layout_alignBottom="@id/tvtime"
+            android:layout_alignLeft="@+id/title_recipe"
+            android:layout_margin="@dimen/margin"
+            app:srcCompat="@drawable/ic_clock" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
