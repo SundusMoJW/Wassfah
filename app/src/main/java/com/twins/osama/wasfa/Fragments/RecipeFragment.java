@@ -3,8 +3,6 @@ package com.twins.osama.wasfa.Fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
@@ -67,7 +65,6 @@ public class RecipeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
     }
 
     @Override
@@ -96,6 +93,7 @@ public class RecipeFragment extends Fragment {
         mLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         gridView.setLayoutManager(mLayoutManager);
         getRecipeList();
+        setHasOptionsMenu(true);
         return view;
     }
 
@@ -109,6 +107,7 @@ public class RecipeFragment extends Fragment {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray jsonArray = jsonObject.optJSONArray("WorcipeApp");
                     imgprogress.setVisibility(View.GONE);
+
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject object = jsonArray.getJSONObject(i);
                         int cid = object.optInt("cid");
@@ -144,11 +143,11 @@ public class RecipeFragment extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 imgprogress.setVisibility(View.GONE);
-                HomeFragment fragment = new HomeFragment();
-                FragmentManager mFragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction mFragmentTransaction = mFragmentManager.beginTransaction();
-                mFragmentTransaction.replace(R.id.frame_layout, fragment);
-                mFragmentTransaction.commit();
+//                HomeFragment fragment = new HomeFragment();
+//                FragmentManager mFragmentManager = getActivity().getSupportFragmentManager();
+//                FragmentTransaction mFragmentTransaction = mFragmentManager.beginTransaction();
+//                mFragmentTransaction.replace(R.id.frame_layout, fragment);
+//                mFragmentTransaction.commit();
             }
         });
 //        int socketTimeout = 20000;//20 seconds - change to what you want

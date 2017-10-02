@@ -65,7 +65,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
     }
 
     @Override
@@ -107,11 +106,10 @@ public class HomeFragment extends Fragment {
         refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Utils.refrshActivity(getActivity());
                 getMenuList();
             }
         });
-
+        setHasOptionsMenu(true);
         return view;
     }
 
@@ -125,6 +123,8 @@ public class HomeFragment extends Fragment {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray jsonArray = jsonObject.optJSONArray("WorcipeApp");
                     progress_image.setVisibility(View.GONE);
+                    recyclerView.setVisibility(View.VISIBLE);
+                    llrefresh.setVisibility(View.GONE);
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject object = jsonArray.getJSONObject(i);
                         String category_name = object.optString("category_name");

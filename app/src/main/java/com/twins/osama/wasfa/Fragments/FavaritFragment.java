@@ -59,7 +59,6 @@ public class FavaritFragment extends Fragment {
         super.onCreate(savedInstanceState);
         Realm.init(getActivity());
         realm = Realm.getDefaultInstance();
-        setHasOptionsMenu(true);
     }
 
     @Override
@@ -112,6 +111,7 @@ public class FavaritFragment extends Fragment {
             noitem.setVisibility(View.VISIBLE);
             gridView.setVisibility(View.GONE);
         }
+        setHasOptionsMenu(true);
         return view;
     }
 
