@@ -162,7 +162,6 @@ public class MainActivity extends AppCompatActivity {
                 fragment = new HomeFragment();
                 Intent intent = new Intent(MainActivity.this, SettingActivity.class);
                 startActivity(intent);
-                finish();
                 break;
         }
         mFragmentTransaction = mFragmentManager.beginTransaction();
