@@ -22,15 +22,11 @@ import com.twins.osama.wasfa.Adapters.MyAdapter;
 import com.twins.osama.wasfa.Classes.DrawerItem;
 import com.twins.osama.wasfa.Fragments.FavaritFragment;
 import com.twins.osama.wasfa.Fragments.HomeFragment;
-import com.twins.osama.wasfa.Fragments.RecipeFragment;
 import com.twins.osama.wasfa.Helpar.OnDrawerItemClickListener;
 import com.twins.osama.wasfa.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import static com.twins.osama.wasfa.Helpar.Const.IF_FROM_FAVRIT;
-import static com.twins.osama.wasfa.Helpar.Const.IF_FROM_RECIPE;
 
 public class MainActivity extends AppCompatActivity {
     public static ArrayList<DrawerItem> items;
@@ -55,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ifFromFavarit = getIntent().getBooleanExtra(IF_FROM_FAVRIT, false);
-        ifFromRecipe = getIntent().getBooleanExtra(IF_FROM_RECIPE, false);
+//        ifFromFavarit = getIntent().getBooleanExtra(IF_FROM_FAVRIT, false);
+//        ifFromRecipe = getIntent().getBooleanExtra(IF_FROM_RECIPE, false);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -110,16 +106,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         Drawer.setDrawerListener(mDrawerToggle);
-        if (ifFromFavarit) {
-            fragment = new FavaritFragment();
-            updateDrawer(1);
-        } else if (ifFromRecipe) {
-            fragment = new RecipeFragment();
-            updateDrawer(0);
-        } else {
+//        if (ifFromFavarit) {
+//            fragment = new FavaritFragment();
+//            updateDrawer(1);
+//        } else if (ifFromRecipe) {
+//            fragment = new RecipeFragment();
+//            updateDrawer(0);
+//        } else {
             fragment = new HomeFragment();
             updateDrawer(0);
-        }
+//        }
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
         mFragmentTransaction.replace(R.id.frame_layout, fragment);

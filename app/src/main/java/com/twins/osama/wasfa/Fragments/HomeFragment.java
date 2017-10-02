@@ -9,7 +9,6 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -29,7 +28,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.twins.osama.wasfa.Activitiy.MainActivity;
 import com.twins.osama.wasfa.Adapters.MenuAdapter;
 import com.twins.osama.wasfa.Classes.Menu;
 import com.twins.osama.wasfa.Helpar.OnDrawerItemClickListener;
@@ -71,16 +69,11 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        MainActivity.nav_back = 0;
-
         progress_image = (ImageView) view.findViewById(R.id.progress_image);
         recyclerView = view.findViewById(R.id.rvmenu);
         llrefresh = (LinearLayout) view.findViewById(R.id.llrefresh);
         refresh = (Button) view.findViewById(R.id.refresh);
-
         VisibilityBack(false);
-
-//        ((MainActivity) getActivity()).findViewById(R.id.go_back).setVisibility(View.GONE);
         animPrograss = AnimationUtils.loadAnimation(getContext(), R.anim.progress_anim);
         animPrograss.setDuration(1000);
         progress_image.startAnimation(animPrograss);
@@ -98,7 +91,6 @@ public class HomeFragment extends Fragment {
             llrefresh.setVisibility(View.GONE);
             getMenuList();
         } else {
-
             progress_image.setVisibility(View.GONE);
             recyclerView.setVisibility(View.GONE);
             llrefresh.setVisibility(View.VISIBLE);
@@ -165,10 +157,6 @@ public class HomeFragment extends Fragment {
                 llrefresh.setVisibility(View.VISIBLE);
             }
         });
-//        int socketTimeout = 20000;//20 seconds - change to what you want
-//        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-//                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
-//        request.setRetryPolicy(policy);
         requestQueue.add(request);
     }
 
@@ -195,16 +183,12 @@ public class HomeFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-//                if (Utils.isNetworkOnline(getContext())) {
                     if(melsadapter != null){
                         melsadapter.getFilter().filter(newText);
                     }
                     else{
-                        Log.d("///","Null earch");
+                        getMenuList();
                     }
-//                } else {
-//                    Toast.makeText(getActivity(), getResources().getString(R.string.offNet), Toast.LENGTH_SHORT).show();
-//                }
                 return true;
             }
         });

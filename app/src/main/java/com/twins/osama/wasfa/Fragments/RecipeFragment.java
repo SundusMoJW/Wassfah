@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.text.Html;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -27,7 +26,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.twins.osama.wasfa.Activitiy.MainActivity;
 import com.twins.osama.wasfa.Activitiy.ViewPagerActivity;
 import com.twins.osama.wasfa.Adapters.AdapterRecipe;
 import com.twins.osama.wasfa.Classes.Recipe;
@@ -72,9 +70,6 @@ public class RecipeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recipe, container, false);
         VisibilityBack(true);
-
-//        ((MainActivity) getContext()).findViewById(R.id.go_back).setVisibility(View.VISIBLE);
-        MainActivity.nav_back = 1;
         position = getArguments().getInt(MENU_ID);
         imgprogress = (ImageView) view.findViewById(R.id.imgprogress);
         gridView = view.findViewById(R.id.rvgrid);
@@ -107,7 +102,6 @@ public class RecipeFragment extends Fragment {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray jsonArray = jsonObject.optJSONArray("WorcipeApp");
                     imgprogress.setVisibility(View.GONE);
-
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject object = jsonArray.getJSONObject(i);
                         int cid = object.optInt("cid");
@@ -143,11 +137,6 @@ public class RecipeFragment extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 imgprogress.setVisibility(View.GONE);
-//                HomeFragment fragment = new HomeFragment();
-//                FragmentManager mFragmentManager = getActivity().getSupportFragmentManager();
-//                FragmentTransaction mFragmentTransaction = mFragmentManager.beginTransaction();
-//                mFragmentTransaction.replace(R.id.frame_layout, fragment);
-//                mFragmentTransaction.commit();
             }
         });
 //        int socketTimeout = 20000;//20 seconds - change to what you want
@@ -181,16 +170,12 @@ public class RecipeFragment extends Fragment {
             @Override
             public boolean onQueryTextChange(String newText) {
 
-//                if (Utils.isNetworkOnline(getContext())) {
                     if(recipadapter != null){
                         recipadapter.getFilter().filter(newText);
                     }
                     else{
-                        Log.d("///","Null earch");
+                        getRecipeList();
                     }
-//                } else {
-//                    Toast.makeText(getActivity(), getResources().getString(R.string.offNet), Toast.LENGTH_SHORT).show();
-//                }
                 return true;
             }
         });

@@ -18,9 +18,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.twins.osama.wasfa.Activitiy.MainActivity;
 import com.twins.osama.wasfa.Activitiy.ViewPagerActivity;
 import com.twins.osama.wasfa.Adapters.AdapterRecipe;
 import com.twins.osama.wasfa.Classes.Recipe;
@@ -41,7 +39,6 @@ public class FavaritFragment extends Fragment {
 
     private RecyclerView gridView;
     private AdapterRecipe recipadapter;
-    private ArrayList<Recipe> recipeList = new ArrayList();
     private RecyclerView.LayoutManager mLayoutManager;
     private ImageView imgprogress_favarit;
     private Animation animPrograss;
@@ -65,15 +62,11 @@ public class FavaritFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_favarit, container, false);
-        MainActivity.nav_back = 1;
 
-        realm.beginTransaction();
-        RealmResults<Recipe> result = realm.where(Recipe.class).findAll();
         noitem = (TextView) view.findViewById(R.id.noitem);
         gridView = view.findViewById(R.id.rvgrid_favrit);
         imgprogress_favarit = (ImageView) view.findViewById(R.id.imgprogress_favarit);
         VisibilityBack(true);
-//        ((MainActivity) getActivity()).findViewById(R.id.go_back).setVisibility(View.VISIBLE);
         noitem.setVisibility(View.GONE);
         animPrograss = AnimationUtils.loadAnimation(getContext(), R.anim.progress_anim);
         animPrograss.setDuration(1000);
@@ -86,31 +79,8 @@ public class FavaritFragment extends Fragment {
                 return (float) Math.floor(input * frameCount) / frameCount;
             }
         });
+        getData();
 
-        mLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-        gridView.setLayoutManager(mLayoutManager);
-        if (!(result.isEmpty())) {
-            noitem.setVisibility(View.GONE);
-            imgprogress_favarit.setVisibility(View.GONE);
-            realm.commitTransaction();
-            list = (ArrayList<Recipe>) realm.copyFromRealm(result);
-            recipadapter = new AdapterRecipe(getActivity(), list, new OnDrawerItemClickListener() {
-                @Override
-                public void onClick(int position) {
-                    Intent intent = new Intent(getActivity(), ViewPagerActivity.class);
-                    intent.putExtra(IF_FROM_FAVRIT, true);
-                    intent.putExtra(FAVRIT_POSSITION, position);
-                    startActivity(intent);
-                }
-            });
-            gridView.setAdapter(recipadapter);
-            recipadapter.notifyDataSetChanged();
-        } else {
-            realm.cancelTransaction();
-            imgprogress_favarit.setVisibility(View.GONE);
-            noitem.setVisibility(View.VISIBLE);
-            gridView.setVisibility(View.GONE);
-        }
         setHasOptionsMenu(true);
         return view;
     }
@@ -139,17 +109,46 @@ public class FavaritFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                recipadapter = new AdapterRecipe(getActivity(), list, new OnDrawerItemClickListener() {
-                    @Override
-                    public void onClick(int position) {
-                    }
-                });
                 if (recipadapter.getItemCount() != 0) {
                     recipadapter.getFilter().filter(newText);
                 } else
-                    Toast.makeText(getActivity(), getResources().getString(R.string.noItem), Toast.LENGTH_SHORT).show();
+                getData();
                 return true;
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+      getData();
+    }
+    public void getData(){
+        realm.beginTransaction();
+        RealmResults<Recipe> result = realm.where(Recipe.class).findAll();
+        mLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        gridView.setLayoutManager(mLayoutManager);
+        if (!(result.isEmpty())) {
+            noitem.setVisibility(View.GONE);
+            imgprogress_favarit.setVisibility(View.GONE);
+            realm.commitTransaction();
+            list = (ArrayList<Recipe>) realm.copyFromRealm(result);
+            recipadapter = new AdapterRecipe(getActivity(), list, new OnDrawerItemClickListener() {
+                @Override
+                public void onClick(int position) {
+                    Intent intent = new Intent(getActivity(), ViewPagerActivity.class);
+                    intent.putExtra(IF_FROM_FAVRIT, true);
+                    intent.putExtra(FAVRIT_POSSITION, position);
+                    startActivity(intent);
+                }
+            });
+            gridView.setAdapter(recipadapter);
+            recipadapter.notifyDataSetChanged();
+        } else {
+            realm.cancelTransaction();
+            imgprogress_favarit.setVisibility(View.GONE);
+            noitem.setVisibility(View.VISIBLE);
+            gridView.setVisibility(View.GONE);
+        }
     }
 }
