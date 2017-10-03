@@ -26,6 +26,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.twins.osama.wasfa.Activitiy.MainActivity;
 import com.twins.osama.wasfa.Activitiy.ViewPagerActivity;
 import com.twins.osama.wasfa.Adapters.AdapterRecipe;
 import com.twins.osama.wasfa.Classes.Recipe;
@@ -73,6 +74,7 @@ public class RecipeFragment extends Fragment {
         position = getArguments().getInt(MENU_ID);
         imgprogress = (ImageView) view.findViewById(R.id.imgprogress);
         gridView = view.findViewById(R.id.rvgrid);
+        MainActivity.nav_back = 1;
 
         animPrograss = AnimationUtils.loadAnimation(getContext(), R.anim.progress_anim);
         animPrograss.setDuration(1000);

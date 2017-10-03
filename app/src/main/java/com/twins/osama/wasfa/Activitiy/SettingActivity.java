@@ -4,15 +4,17 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.twins.osama.wasfa.Helpar.ActivitySwipeDetector;
+import com.twins.osama.wasfa.Helpar.SwipeDismissBaseActivity;
 import com.twins.osama.wasfa.Helpar.Utils;
 import com.twins.osama.wasfa.R;
 
-public class SettingActivity extends AppCompatActivity {
+public class SettingActivity extends SwipeDismissBaseActivity{
 
     private TextView aboutApp;
     private TextView verion;
@@ -21,9 +23,12 @@ public class SettingActivity extends AppCompatActivity {
     private Activity activity;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+        ActivitySwipeDetector activitySwipeDetector = new ActivitySwipeDetector(this);
+        LinearLayout lowestLayout = (LinearLayout)this.findViewById(R.id.action_settings);
+        lowestLayout.setOnTouchListener(activitySwipeDetector);
         activity = this;
         aboutApp = (TextView) findViewById(R.id.about_app);
         verion = (TextView) findViewById(R.id.verion);

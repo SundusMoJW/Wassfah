@@ -113,8 +113,8 @@ public class MainActivity extends AppCompatActivity {
 //            fragment = new RecipeFragment();
 //            updateDrawer(0);
 //        } else {
-            fragment = new HomeFragment();
-            updateDrawer(0);
+        fragment = new HomeFragment();
+        updateDrawer(0);
 //        }
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
@@ -147,14 +147,16 @@ public class MainActivity extends AppCompatActivity {
                 nav_back = 0;
                 fragment = new HomeFragment();
                 menu.setVisibility(View.VISIBLE);
+
                 break;
             case 1:
                 nav_back = 1;
                 fragment = new FavaritFragment();
                 menu.setVisibility(View.VISIBLE);
+
                 break;
             case 2:
-                nav_back = 1;
+                nav_back = 0;
                 fragment = new HomeFragment();
                 Intent intent = new Intent(MainActivity.this, SettingActivity.class);
                 startActivity(intent);
@@ -162,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
         }
         mFragmentTransaction = mFragmentManager.beginTransaction();
         mFragmentTransaction.replace(R.id.frame_layout, fragment);
-        mFragmentTransaction.addToBackStack(null);
+        mFragmentTransaction.addToBackStack(nav_back+"");
         mFragmentTransaction.commit();
         mFragmentManager.executePendingTransactions();
         updateDrawer(position);
@@ -181,13 +183,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 //        super.onBackPressed();
-//        if (getFragmentManager().getBackStackEntryCount() > 0) {
-//            getFragmentManager().popBackStack();
-            if (mFragmentManager.getBackStackEntryCount() > 1){
-                mFragmentManager.popBackStackImmediate();
-                mFragmentManager.beginTransaction().commit();
+        if (mFragmentManager.getBackStackEntryCount() > 1) {
+            mFragmentManager.popBackStackImmediate();
+            mFragmentManager.beginTransaction().commit();
+//        if (nav_back!=0) {
+//            mFragmentManager.popBackStack ("0", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
-        }else{
+        } else {
             if (Drawer.isDrawerOpen(mRecyclerView)) {
                 Drawer.closeDrawer(mRecyclerView);
                 mAdapter.notifyDataSetChanged();
@@ -207,9 +209,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-public  static void VisibilityBack(boolean isVisibile){
-    if(isVisibile==true)
-    go_back.setVisibility(View.VISIBLE);
-else go_back.setVisibility(View.GONE);
-}
+
+    public static void VisibilityBack(boolean isVisibile) {
+        if (isVisibile == true)
+            go_back.setVisibility(View.VISIBLE);
+        else go_back.setVisibility(View.GONE);
+    }
 }

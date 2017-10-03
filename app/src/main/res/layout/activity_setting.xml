@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:layoutDirection="rtl"
     android:orientation="vertical"
+    android:id="@+id/action_settings"
     android:textDirection="rtl"
     tools:context="com.twins.osama.wasfa.Activitiy.SettingActivity">
 
