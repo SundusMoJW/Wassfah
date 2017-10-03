@@ -177,6 +177,7 @@ public class RecipeFragment extends Fragment {
                     }
                     else{
                         getRecipeList();
+                        if (recipadapter==null)Toast.makeText(getActivity(), "No Item in Favrit", Toast.LENGTH_LONG).show();
                     }
                 return true;
             }
