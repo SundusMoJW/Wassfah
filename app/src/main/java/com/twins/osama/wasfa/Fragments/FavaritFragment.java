@@ -19,6 +19,7 @@ import android.view.animation.Interpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.twins.osama.wasfa.Activitiy.MainActivity;
 import com.twins.osama.wasfa.Activitiy.ViewPagerActivity;
 import com.twins.osama.wasfa.Adapters.AdapterRecipe;
 import com.twins.osama.wasfa.Classes.Recipe;
@@ -62,7 +63,7 @@ public class FavaritFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_favarit, container, false);
-
+        MainActivity.nav_back = 1;
         noitem = (TextView) view.findViewById(R.id.noitem);
         gridView = view.findViewById(R.id.rvgrid_favrit);
         imgprogress_favarit = (ImageView) view.findViewById(R.id.imgprogress_favarit);

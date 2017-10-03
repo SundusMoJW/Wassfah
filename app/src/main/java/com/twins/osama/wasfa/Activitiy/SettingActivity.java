@@ -6,15 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.twins.osama.wasfa.Helpar.ActivitySwipeDetector;
-import com.twins.osama.wasfa.Helpar.SwipeDismissBaseActivity;
+import com.liuguangqiang.swipeback.SwipeBackActivity;
+import com.liuguangqiang.swipeback.SwipeBackLayout;
 import com.twins.osama.wasfa.Helpar.Utils;
 import com.twins.osama.wasfa.R;
 
-public class SettingActivity extends SwipeDismissBaseActivity{
+public class SettingActivity extends SwipeBackActivity{
 
     private TextView aboutApp;
     private TextView verion;
@@ -26,9 +25,8 @@ public class SettingActivity extends SwipeDismissBaseActivity{
     protected void onCreate(Bundle savedInstanceState)    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
-        ActivitySwipeDetector activitySwipeDetector = new ActivitySwipeDetector(this);
-        LinearLayout lowestLayout = (LinearLayout)this.findViewById(R.id.action_settings);
-        lowestLayout.setOnTouchListener(activitySwipeDetector);
+        setDragEdge(SwipeBackLayout.DragEdge.LEFT);
+
         activity = this;
         aboutApp = (TextView) findViewById(R.id.about_app);
         verion = (TextView) findViewById(R.id.verion);

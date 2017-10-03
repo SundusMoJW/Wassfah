@@ -41,6 +41,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import static com.twins.osama.wasfa.Activitiy.MainActivity.VisibilityBack;
+import static com.twins.osama.wasfa.Activitiy.MainActivity.nav_back;
 import static com.twins.osama.wasfa.Helpar.Const.MENU_ID;
 import static com.twins.osama.wasfa.Helpar.Const.URL_MENU;
 
@@ -136,7 +137,7 @@ public class HomeFragment extends Fragment {
                             bundle.putInt(MENU_ID, menuList.get(position).getId());
                             fragment.setArguments(bundle);
                             mFragmentTransaction.replace(R.id.frame_layout, fragment);
-                            mFragmentTransaction.addToBackStack(null);
+                            mFragmentTransaction.addToBackStack(nav_back+"");
                             mFragmentTransaction.commit();
                             mFragmentManager.executePendingTransactions();
                         }

@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 mFragmentManager = getSupportFragmentManager();
                 mFragmentTransaction = mFragmentManager.beginTransaction();
                 mFragmentTransaction.replace(R.id.frame_layout, new HomeFragment());
-                mFragmentTransaction.addToBackStack(null);
+                mFragmentTransaction.addToBackStack(nav_back+"");
                 mFragmentTransaction.commit();
                 mFragmentManager.executePendingTransactions();
             }
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
         mFragmentTransaction.replace(R.id.frame_layout, fragment);
-        mFragmentTransaction.addToBackStack(null);
+        mFragmentTransaction.addToBackStack(nav_back+"");
         mFragmentTransaction.commit();
         mFragmentManager.executePendingTransactions();
     }
@@ -153,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
                 nav_back = 1;
                 fragment = new FavaritFragment();
                 menu.setVisibility(View.VISIBLE);
+                mFragmentTransaction.addToBackStack(nav_back+"");
 
                 break;
             case 2:
@@ -183,8 +184,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 //        super.onBackPressed();
-        if (mFragmentManager.getBackStackEntryCount() > 1) {
-            mFragmentManager.popBackStackImmediate();
+        if (mFragmentManager.getBackStackEntryCount() > 1&&nav_back!=0) {
+//            mFragmentManager.popBackStackImmediate();
+            mFragmentManager.popBackStack ("0", FragmentManager.POP_BACK_STACK_INCLUSIVE);
             mFragmentManager.beginTransaction().commit();
 //        if (nav_back!=0) {
 //            mFragmentManager.popBackStack ("0", FragmentManager.POP_BACK_STACK_INCLUSIVE);
