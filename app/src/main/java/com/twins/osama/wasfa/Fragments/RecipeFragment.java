@@ -143,7 +143,7 @@ public class RecipeFragment extends Fragment {
         });
 //        int socketTimeout = 20000;//20 seconds - change to what you want
 //        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-//                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+//        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
 //        request.setRetryPolicy(policy);
         requestQueue.add(request);
     }

@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
                 nav_back = 1;
                 fragment = new FavaritFragment();
                 menu.setVisibility(View.VISIBLE);
-                mFragmentTransaction.addToBackStack(nav_back+"");
+//                mFragmentTransaction.addToBackStack(nav_back+"");
 
                 break;
             case 2:
@@ -211,6 +211,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
 
     public static void VisibilityBack(boolean isVisibile) {
         if (isVisibile == true)
