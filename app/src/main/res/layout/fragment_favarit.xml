@@ -24,16 +24,17 @@
         android:padding="10dp">
 
     </android.support.v7.widget.RecyclerView>
+
     <TextView
         android:id="@+id/noitem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/titel"
-        android:background="@drawable/back_text_slider"
-        android:padding="@dimen/titel"
-        android:textColor="@color/white"
-        android:text="No Item In Favarit "
         android:layout_gravity="center|top"
-        android:visibility="gone"/>
+        android:background="@drawable/button_shape"
+        android:padding="@dimen/titel"
+        android:text="No Item In Favarit "
+        android:textColor="@color/white"
+        android:textSize="@dimen/titel"
+        android:visibility="gone" />
 
 </LinearLayout>

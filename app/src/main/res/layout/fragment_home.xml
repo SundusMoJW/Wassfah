@@ -32,7 +32,8 @@
         android:text="REFRESH"
         android:layout_margin="10dp"
         android:textColor="@color/white"
-        android:background="@drawable/back_text_slider"/>
+        android:background="@drawable/button_shape"
+        />
 </LinearLayout>
     <ImageView
         android:id="@+id/progress_image"
