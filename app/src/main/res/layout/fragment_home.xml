@@ -1,56 +1,62 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/shadow_end"
     android:orientation="vertical"
     android:weightSum="1">
-<LinearLayout
-    android:id="@+id/llrefresh"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:layout_gravity="center"
-    android:padding="10dp"
-    android:orientation="vertical"
-    android:visibility="gone">
-    <TextView
-        android:id="@+id/oops"
+
+    <LinearLayout
+        android:id="@+id/llrefresh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="OOPS :( NETWORK OFFLINE"
+        android:layout_gravity="center"
         android:gravity="center"
-        android:layout_margin="10dp"
-        android:textSize="@dimen/titel"
-        android:textColor="@color/backLogo"
-        />
-    <Button
-        android:id="@+id/refresh"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="REFRESH"
-        android:layout_margin="10dp"
-        android:textColor="@color/white"
-        android:background="@drawable/button_shape"
-        />
-</LinearLayout>
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/oops"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="OOPS :( NETWORK OFFLINE"
+            android:textColor="@color/backLogo"
+            android:textSize="@dimen/titel" />
+
+        <Button
+            android:id="@+id/refresh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_shape"
+            android:text="REFRESH"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
     <ImageView
         android:id="@+id/progress_image"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_margin="20dp"
         android:layout_gravity="center"
+        android:layout_margin="20dp"
         app:srcCompat="@drawable/ic_spinner_of_dots" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvmenu"
+    <android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swiperefresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:background="@color/shadow_end"
-        android:padding="10dp"
-        >
+        android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvmenu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@color/shadow_end"
+            android:padding="10dp">
+
+        </android.support.v7.widget.RecyclerView>
+    </android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>

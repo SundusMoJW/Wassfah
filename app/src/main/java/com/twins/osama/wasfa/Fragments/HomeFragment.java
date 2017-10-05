@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
@@ -54,6 +55,7 @@ public class HomeFragment extends Fragment {
     private FragmentTransaction mFragmentTransaction;
     private Button refresh;
     private LinearLayout llrefresh;
+    private SwipeRefreshLayout mySwipeRefreshLayout;
 
     // TODO: Rename parameter arguments, choose names that match
     public static HomeFragment newInstance() {
@@ -95,6 +97,7 @@ public class HomeFragment extends Fragment {
             progress_image.setVisibility(View.GONE);
             recyclerView.setVisibility(View.GONE);
             llrefresh.setVisibility(View.VISIBLE);
+            mySwipeRefreshLayout.setRefreshing(false);
         }
         refresh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +106,15 @@ public class HomeFragment extends Fragment {
             }
         });
         setHasOptionsMenu(true);
+        mySwipeRefreshLayout=view.findViewById(R.id.swiperefresh);
+        mySwipeRefreshLayout.setOnRefreshListener(
+                new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                    getMenuList();
+                    }
+                }
+        );
         return view;
     }
 
@@ -113,6 +125,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onResponse(String response) {
                 try {
+                    mySwipeRefreshLayout.setRefreshing(true);
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray jsonArray = jsonObject.optJSONArray("WorcipeApp");
                     progress_image.setVisibility(View.GONE);
@@ -156,6 +169,7 @@ public class HomeFragment extends Fragment {
                 progress_image.setVisibility(View.GONE);
                 recyclerView.setVisibility(View.GONE);
                 llrefresh.setVisibility(View.VISIBLE);
+                mySwipeRefreshLayout.setRefreshing(false);
             }
         });
         requestQueue.add(request);

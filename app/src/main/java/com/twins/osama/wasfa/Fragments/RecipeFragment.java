@@ -155,6 +155,10 @@ public class RecipeFragment extends Fragment {
         MenuItem search = menu.findItem(R.id.search);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(search);
         search(searchView);
+//        if (searchView != null) {
+//            searchView.setOnQueryTextListener(search);}
+
+//        return super.onCreateOptionsMenu(menu);
     }
 
     @Override

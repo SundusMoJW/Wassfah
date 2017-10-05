@@ -18,6 +18,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.twins.osama.wasfa.Activitiy.MainActivity;
 import com.twins.osama.wasfa.Activitiy.ViewPagerActivity;
@@ -57,6 +58,8 @@ public class FavaritFragment extends Fragment {
         super.onCreate(savedInstanceState);
         Realm.init(getActivity());
         realm = Realm.getDefaultInstance();
+        setHasOptionsMenu(true);
+
     }
 
     @Override
@@ -82,7 +85,6 @@ public class FavaritFragment extends Fragment {
         });
         getData();
 
-        setHasOptionsMenu(true);
         return view;
     }
 
@@ -110,10 +112,10 @@ public class FavaritFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                if (recipadapter.getItemCount() != 0) {
+                if (recipadapter.getItemCount() != 0&&!(list.isEmpty())){
                     recipadapter.getFilter().filter(newText);
                 } else
-                getData();
+                    Toast.makeText(getContext(), "No Item", Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
