@@ -38,8 +38,7 @@ public class Utils {
     }
 
     public static void refrshActivity(Activity activity) {
-        activity.finish();
-        activity.startActivity(activity.getIntent());
+        activity.recreate();
     }
 
     public static Dialog onCreateDialogSingleChoice(final Context activity, int array) {

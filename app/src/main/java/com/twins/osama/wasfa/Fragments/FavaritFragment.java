@@ -112,6 +112,7 @@ public class FavaritFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                if( recipadapter != null)
                 if (recipadapter.getItemCount() != 0&&!(list.isEmpty())){
                     recipadapter.getFilter().filter(newText);
                 } else

@@ -15,7 +15,7 @@ public interface Const {
     String ARRAY_SLIDER="arrSlider";
     String FAVRIT_POSSITION="favaritWid";
     String IF_FROM_RECIPE="ifFromRecipe";
-
+    String WID="wid";
     String URL_RECIPE= "http://www.wsfah.com/app/worcipe/api.php?cat_id=";
     String URL_MENU="http://www.wsfah.com/app/worcipe/api.php";
     String URL_Image="http://www.wsfah.com/app/worcipe/upload/";

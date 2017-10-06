@@ -1,4 +1,5 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -6,12 +7,14 @@
     android:orientation="vertical"
     android:weightSum="1">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/llrefresh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
         android:orientation="vertical"
         android:padding="10dp"
         android:visibility="gone">
@@ -30,11 +33,12 @@
             android:id="@+id/refresh"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/oops"
             android:layout_margin="10dp"
             android:background="@drawable/button_shape"
             android:text="REFRESH"
             android:textColor="@color/white" />
-    </LinearLayout>
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/progress_image"
@@ -59,4 +63,4 @@
 
         </android.support.v7.widget.RecyclerView>
     </android.support.v4.widget.SwipeRefreshLayout>
-</LinearLayout>
+</RelativeLayout>

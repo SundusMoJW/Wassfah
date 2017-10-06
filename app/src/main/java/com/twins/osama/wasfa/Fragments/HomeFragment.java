@@ -20,7 +20,6 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -54,7 +53,7 @@ public class HomeFragment extends Fragment {
     private Animation animPrograss;
     private FragmentTransaction mFragmentTransaction;
     private Button refresh;
-    private LinearLayout llrefresh;
+    private ViewGroup llrefresh;
     private SwipeRefreshLayout mySwipeRefreshLayout;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -74,8 +73,10 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         progress_image = (ImageView) view.findViewById(R.id.progress_image);
         recyclerView = view.findViewById(R.id.rvmenu);
-        llrefresh = (LinearLayout) view.findViewById(R.id.llrefresh);
+        llrefresh = (ViewGroup) view.findViewById(R.id.llrefresh);
         refresh = (Button) view.findViewById(R.id.refresh);
+        mySwipeRefreshLayout=view.findViewById(R.id.swiperefresh);
+
         VisibilityBack(false);
         animPrograss = AnimationUtils.loadAnimation(getContext(), R.anim.progress_anim);
         animPrograss.setDuration(1000);
@@ -106,7 +107,6 @@ public class HomeFragment extends Fragment {
             }
         });
         setHasOptionsMenu(true);
-        mySwipeRefreshLayout=view.findViewById(R.id.swiperefresh);
         mySwipeRefreshLayout.setOnRefreshListener(
                 new SwipeRefreshLayout.OnRefreshListener() {
                     @Override
@@ -125,7 +125,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onResponse(String response) {
                 try {
-                    mySwipeRefreshLayout.setRefreshing(true);
+                    mySwipeRefreshLayout.setRefreshing(false);
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray jsonArray = jsonObject.optJSONArray("WorcipeApp");
                     progress_image.setVisibility(View.GONE);

@@ -45,6 +45,7 @@ import static com.twins.osama.wasfa.Helpar.Const.MENU_CID;
 import static com.twins.osama.wasfa.Helpar.Const.MENU_ID;
 import static com.twins.osama.wasfa.Helpar.Const.RECIP_LIST;
 import static com.twins.osama.wasfa.Helpar.Const.URL_RECIPE;
+import static com.twins.osama.wasfa.Helpar.Const.WID;
 
 public class RecipeFragment extends Fragment {
     private RecyclerView gridView;
@@ -125,6 +126,7 @@ public class RecipeFragment extends Fragment {
                             intent.putExtra(MENU_CID, recipeList.get(position).getCid());
                             intent.putExtra(RECIP_LIST, recipeList);
                             intent.putExtra(INDEX, position);
+                            intent.putExtra(WID, recipeList.get(position).getWid());
                             startActivity(intent);
                         }
                     });

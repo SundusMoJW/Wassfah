@@ -22,6 +22,7 @@ import static com.twins.osama.wasfa.Helpar.Const.IF_FROM_FAVRIT;
 import static com.twins.osama.wasfa.Helpar.Const.INDEX;
 import static com.twins.osama.wasfa.Helpar.Const.MENU_CID;
 import static com.twins.osama.wasfa.Helpar.Const.RECIP_LIST;
+import static com.twins.osama.wasfa.Helpar.Const.WID;
 
 public class ViewPagerActivity extends FragmentActivity {
     private SliderAdapter adapter;
@@ -38,6 +39,7 @@ public class ViewPagerActivity extends FragmentActivity {
     private boolean ifFromFavarit;
     private Recipe recipe;
     private int favritPossetion;
+    private int wid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,8 @@ public class ViewPagerActivity extends FragmentActivity {
 
         post = getIntent().getIntExtra(MENU_CID, 0);
         inde = getIntent().getIntExtra(INDEX, 0);
+        wid=getIntent().getIntExtra(WID, 0);
+
         RecipList = getIntent().getParcelableArrayListExtra(RECIP_LIST);
         ifFromFavarit = getIntent().getBooleanExtra(IF_FROM_FAVRIT, false);
         favritPossetion = getIntent().getIntExtra(FAVRIT_POSSITION, 0);
